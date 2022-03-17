@@ -27,6 +27,13 @@
             <input type="e-mail" name="email" required="required" placeholder="Digite seu e-mail"><br><br>
             <input type="password" name="password" required="required" placeholder="Digite sua senha"><br><br>
             <input type="password" name="confimedpassword" required="required" placeholder="Confirme sua senha"><br>
+            <label for="deficiencia">Gênero:</label>
+                <select name="deficiencia" id="deficiencia">
+                    <option value="Nulo"></option>
+                    <option value="Autismo">Autismo</option>
+                    <option value="Autismoe">Feminino</option>
+                    <option value="Outros">Mercedes</option>
+                </select><br><br>
             <h3>Social:</h3>
             <label>
                 A criança tem interação social?
