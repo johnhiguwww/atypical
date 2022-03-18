@@ -13,27 +13,29 @@
         <h2>Cadastro de Criança</h2>
         <h4>*Preencher todos os cadastro*</h4>
         <form method="POST" action="crianca.php">
-            <input type="text" name="nome" required="required" placeholder="Digite seu Nome aqui"><br><br>
-            <label for="genero">Gênero:</label>
-                <select name="genero" id="generto">
+            <input type="text" name="nome" required="required" placeholder="Digite o Nome da criança aqui"><br><br>
+            <label for="deficiencia" required="required">Deficiência:</label>
+                <select name="deficiencia" id="deficiencia">
                     <option value="Nulo"></option>
-                    <option value="Masculina">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                    <option value="Outros">Mercedes</option>
+                    <option value="autismo">Autismo</option>
+                    <option value="sindromededown">Sindrome de Down</option>
+                    <option value="microsefalia">Microsefalia</option>
+                    <option value="autismoedown">Autismo e Sindrome de Down</option>
+                    <option value="microsefaliaeautismo">Autismo e Microsefalia</option>
                 </select><br><br>
             <form method="POST" action="doc.php">
                 Nascimento: <input type="date" id="data" name="data"> 
             </form><br> 
             <input type="e-mail" name="email" required="required" placeholder="Digite seu e-mail"><br><br>
             <input type="password" name="password" required="required" placeholder="Digite sua senha"><br><br>
-            <input type="password" name="confimedpassword" required="required" placeholder="Confirme sua senha"><br>
+            <input type="password" name="confimedpassword" required="required" placeholder="Confirme sua senha"><br><br>
             <label for="deficiencia">Gênero:</label>
                 <select name="deficiencia" id="deficiencia">
                     <option value="Nulo"></option>
                     <option value="Autismo">Autismo</option>
                     <option value="Autismoe">Feminino</option>
-                    <option value="Outros">Mercedes</option>
-                </select><br><br>
+                    <option value="Outros">Outros</option>
+                </select><br>
             <h3>Social:</h3>
             <label>
                 A criança tem interação social?
@@ -82,6 +84,19 @@
                 A criança tem dificuldade motora grossa?<br>
                 *por exemplo defict em andar*<br>
                 <input type="checkbox" name="motoragrossa">
+            </label> <br>
+            <h3>Aprendizagem</h3>
+            <label>
+                A criança tem dificuldade de aprendizagem?
+                <input type="checkbox" name="deficaprendizagem">
+            </label> <br><br>
+            <label>
+                Se sim pode informar quais materias são:
+                <input type="text" name="materias" placeholder="adicionar materias ">
+            </label><br><br>
+            <label>
+                A criança apresenta sinais de TDH?
+                <input type="checkbox" name="tdg">
             </label> <br><br>
             <input type="submit" name="Enviar" >  
         </div>
