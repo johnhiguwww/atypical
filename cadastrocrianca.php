@@ -32,8 +32,8 @@
             <label for="deficiencia">Gênero:</label>
                 <select name="deficiencia" id="deficiencia">
                     <option value="Nulo"></option>
-                    <option value="Autismo">Autismo</option>
-                    <option value="Autismoe">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
                     <option value="Outros">Outros</option>
                 </select><br>
             <h3>Social:</h3>
