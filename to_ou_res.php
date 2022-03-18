@@ -85,7 +85,7 @@ transform: translateY(-100%);
      </style>
     
 </head>
-   <body background="./assets/fundo0.5.png">
+   <body background="./assets/img/fundo0.5.png">
     <div class="Cadastro">
       </div class     >
       <h1>CADASTRO</h1>

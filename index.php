@@ -34,7 +34,7 @@
 
  </style>
 </head>
-<body background="./assets/fundo0.5.png">
+<body background="./assets/img/fundo0.5.png">
   
 </body>
 </html>
@@ -44,7 +44,7 @@
   <a class="links" id="paralogin"></a>
   
     <div id="login">
-      <img width="100%" src="./assets/iconpq.png" alt="png">
+      <img width="100%" src="./assets/img/iconpq.png" alt="png">
     
       <form method="post" action=""> 
         <h1>Login</h1> 
@@ -65,7 +65,7 @@
         </p>
         <p class="link">
           Ainda não tem conta?
-          <a href="./alison.php">Cadastre-se</a>
+          <a href="./to_ou_res.php">Cadastre-se</a>
         </p>
       </form>
     </div>
