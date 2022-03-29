@@ -13,13 +13,12 @@
         .box{
             color: white;
             position: absolute;
-            top: 90%;
+            top: 150%;
             left: 50%;
             transform: translate(-50%,-50%);
             background-color: rgba(0, 0, 0, 0.6);
             padding: 15px;
             border-radius: 15px;
-            width: 20%;
         }
         fieldset{
             border: 3px solid dodgerblue;
@@ -177,7 +176,7 @@ input:checked[type="checkbox"]:before{
                 <br>
                 <div class="inputBox">
                 <label>
-                 A crinça tem comportamentos de esteriotipia?
+                 A criança tem comportamentos de esteriotipia?
                  <input type="checkbox" name="comportamentoesteriotipia">
                 </label>
                 <div class="inputBox">
@@ -200,44 +199,110 @@ input:checked[type="checkbox"]:before{
                       Video
                       <input type="file" name="arquivos" class="btn btn-success" accept="video/mkv, video/mp4" multiple />                    
                       </label> <br><br>
-                      <h3>FONOAUDIOLOGIA</h3>
-                      <label>
-                          A crinaça tem dificuldade de fala?
-                          <input type="checkbox" name="dificuldadedefala">
-                        </label> <br><br>
-                        <label>
-                            A criança tem dificuldade de mastigar?
-                            <input type="checkbox" name="dificuldadedemastigar">
-                           </label> <br><br>
                            <h3>Motora</h3>
                            <label>
                             A criança tem dificuldade motora fina?<br>
-                            *por exemplo pegada de lapis e <talheres></talheres>
+                            *por exemplo pegada de lapis e talheres*
                             <br>
                             <input type="checkbox" name="motorafina">
                             </label> <br><br>
                             <label>
                                 A criança tem dificuldade motora grossa? <br>
-                                *por exemplo deficuldade em <andar></andar>
+                                *por exemplo deficuldade em andar*
                                 <br>
                                 <input type="checkbox" name="motoragrossa">
                                 </label><br>
                                 <h3>Aprendizagem</h3>
                                 <label>
-                                    A crinaça tem dificuldade de aprendizagem?
+                                    A criança tem dificuldade de aprendizagem?
                                     <input type="checkbox" name="deficaprendizagem">
                                </label> <br><br>
                                <label>
                                    Se sim pode informar quais são:
-                                    <input type="text" name="materias" placeholder="adicionar materias">
+                                    <input type="text" name="materias" placeholder="matérias escolares">
                                    </label> <br><br>
                                    <label>
-                                       A crinaça apresenta sinaios TDH?
+                                       A criança apresenta sinaios TDH?
                                        <input type="checkbox" name="tdg">
                                    </label> <br><br>
-                                   
-                      <input type="submit" name="submit" id="submit">
-
+                                   <h3>Gestação</h3>
+                                   <label>
+                                       Fez pré natal?
+                                       <input type="checkbox" name="prenatal">
+                                       <br>
+                                    </label>
+                                       <br>
+                                       Quantas semanas começou a sentir?
+                                       <input type="text" name="">
+                                       <br><br>
+                                       Teve alguma doença na gestação?
+                                       <input type="checkbox" name="">
+                                       <br><br>
+                                       Foi de risco?
+                                       <input type="checkbox" name="">
+                                       <br><br>
+                                       Fez uso de medicamentos?
+                                       <input type="checkbox" name="">
+                                       <br><br>
+                                    Nasceu com quantas semanas? 
+                                    <input type="text" name="">   
+                                </label> <br>
+                                   <h3>Desenvolvimento motor</h3>
+                                   <label>
+                                   Firmou a cabeça com quanto tempo?
+                                   <input type="text" name="">
+                                   <br><br>
+                                   Sentou com apoio e sem apojo com quanto tempo?
+                                   <input type="text" name="">
+                                   <br><br>
+                                   Engatinhou?
+                                   <input type="checkbox" name="">
+                                   <br><br>
+                                   Andou com quantos anos? 
+                                   <input type="text" name="">
+                                   <br><br>
+                                   Tropeça muito ao andar?
+                                   <input type="checkbox" name="">
+                                   <br><br>
+                                   Sobe escada alternado?
+                                   <input type="checkbox" name="">
+                                   <br><br>
+                                   Anda em linha reta? 
+                                   <input type="checkbox" name="">
+                                   <br><br>
+                                   Pula de um pé só?
+                                   <input type="checkbox" name=""> 
+                                   <br><br>
+                                   <h3>Perguntas direcionadas à área da psicologia</h3>
+                                   <label>
+                                      A criança busca e demonstra carinho? <input type="checkbox" name=""><br><br>
+                                      Se sim, com qualquer pessoa ou mais com familiares?
+                                     <input type="text" name="">
+                                     <br><br> 
+                                     Quais os maiores interesses da criança? 
+                                     <input type="text" name="">
+                                     <br><br>
+                                     A criança brinca sozinha? 
+                                     <input type="checkbox" name="">
+                                     <br><br>
+                                     Brinca com outras crianças? <input type="checkbox" name=""><br><br>
+                                      Fale um pouco sobre como é a socialização.
+                                     <input type="text" name="">
+                                     <br><br>
+                                     Compartilha objetos? 
+                                     <input type="checkbox" name="">
+                                     <br><br>
+                                     A criança identifica sentimentos? 
+                                     <input type="checkbox" name="">
+                                     <br><br>
+                                     Demonstra empatia (ex.: fica triste ao ver o outro triste)? 
+                                    <input type="checkbox" name="">
+                                    <br><br>
+                                    Quais os comportamentos que a criança apresenta diante de frustrações?
+                                    <input type="text">
+                                    <br><br>
+                                    <input type="submit" name="submit" id="submit">
+                   
             </fieldset>
         </form>
     </div>
