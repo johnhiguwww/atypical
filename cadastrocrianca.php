@@ -1,115 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="imagex/png" href = "./assets/img/iconpq.png ">
+    <link rel="stylesheet" href="./assets/styles/style_cadastro_crianca.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Terapeuta</title> 
-    <style>
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(to right, rgb(255, 255, 0), rgb(0, 0, 255));
-        }
-        .box{
-            color: white;
-            position: absolute;
-            top: 150%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 15px;
-            border-radius: 15px;
-        }
-        fieldset{
-            border: 3px solid dodgerblue;
-        }
-        legend{
-            border: 1px solid dodgerblue;
-            padding: 10px;
-            text-align: center;
-            background-color: dodgerblue;
-            border-radius: 8px;
-        }
-        .inputBox{
-            position: relative;
-        }
-        .inputUser{
-            background: none;
-            border: none;
-            border-bottom: 1px solid white;
-            outline: none;
-            color: white;
-            font-size: 15px;
-            width: 100%;
-            letter-spacing: 2px;
-        }
-        .labelInput{
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            pointer-events: none;
-            transition: .5s;
-        }
-        .inputUser:focus ~ .labelInput,
-        .inputUser:valid ~ .labelInput{
-            top: -20px;
-            font-size: 12px;
-            color: dodgerblue;
-        }
-        #data_nascimento{
-            border: none;
-            padding: 8px;
-            border-radius: 10px;
-            outline: none;
-            font-size: 15px;
-        }
-        #submit{
-            background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
-            width: 100%;
-            border: none;
-            padding: 15px;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        #submit:hover{
-            background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
-        }
-        input[type="checkbox"]{
-    position: relative;
-    width: 40px;
-    height: 20px;
-    -webkit-appearance: none;
-    background: #c6c6c6;
-    outline: none;
-    border-radius: 20px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
-}
-input:checked[type="checkbox"]{
-    background: #03a9f4;
-}
-input[type="checkbox"]:before{
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    top: 0;
-    left: 0;
-    background: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-    transition: .5s;
-}
-input:checked[type="checkbox"]:before{
-    left: 20px;
-}
-    </style>
+    <title>Cadastro Criança</title> 
 </head>
 <body>
     <div class="box">
-        <form action="">
+        <form action="./crianca.php">
             <fieldset>
                 <legend><b>Cadastro de Criança</b></legend>
                 <legend><b>*Gerenciado pelos reponsaveis*</b></legend>  
@@ -137,13 +38,13 @@ input:checked[type="checkbox"]:before{
                 <label for="sindromededown">Sindrome de Down</label>
                 <br>
                 <input type="radio" id="microsefalia" name="deficiencia" value="microsefalia" required>
-                <label for="microsefalia">Microsefalia</label>
+                <label for="microsefalia">Microcefalia</label>
                 <br>
                 <input type="radio" id="aut_sd" name="deficiencia" value="aut_sd" required>
                 <label for="aut_sd">Autismo e Sindrome de Down</label>
                 <br>
                 <input type="radio" id="aut_micro" name="deficiencia" value="aut_micro" required>
-                <label for="aut_micro">Autismo e Microsefalia</label>
+                <label for="aut_micro">Autismo e Microcefalia</label>
                 <br>
                 </div>
                 <p>Sexo:</p>
@@ -202,7 +103,7 @@ input:checked[type="checkbox"]:before{
                            <h3>Motora</h3>
                            <label>
                             A criança tem dificuldade motora fina?<br>
-                            *por exemplo pegada de lapis e talheres*
+                            *por exemplo pegada de lápis e talheres*
                             <br>
                             <input type="checkbox" name="motorafina">
                             </label> <br><br>
@@ -222,12 +123,12 @@ input:checked[type="checkbox"]:before{
                                     <input type="text" name="materias" placeholder="matérias escolares">
                                    </label> <br><br>
                                    <label>
-                                       A criança apresenta sinaios TDH?
+                                       A criança apresenta sinais TDH?
                                        <input type="checkbox" name="tdg">
                                    </label> <br><br>
                                    <h3>Gestação</h3>
                                    <label>
-                                       Fez pré natal?
+                                       Fez pré-natal?
                                        <input type="checkbox" name="prenatal">
                                        <br>
                                     </label>
@@ -237,10 +138,10 @@ input:checked[type="checkbox"]:before{
                                        <br><br>
                                        Teve alguma doença na gestação?
                                        <input type="checkbox" name="">
-                                       <br><br>
+                                       <br>
                                        Foi de risco?
                                        <input type="checkbox" name="">
-                                       <br><br>
+                                       <br>
                                        Fez uso de medicamentos?
                                        <input type="checkbox" name="">
                                        <br><br>
@@ -252,7 +153,7 @@ input:checked[type="checkbox"]:before{
                                    Firmou a cabeça com quanto tempo?
                                    <input type="text" name="">
                                    <br><br>
-                                   Sentou com apoio e sem apojo com quanto tempo?
+                                   Sentou com apoio e sem apoio com quanto tempo?
                                    <input type="text" name="">
                                    <br><br>
                                    Engatinhou?
@@ -275,8 +176,7 @@ input:checked[type="checkbox"]:before{
                                    <br><br>
                                    <h3>Perguntas direcionadas à área da psicologia</h3>
                                    <label>
-                                      A criança busca e demonstra carinho? <input type="checkbox" name=""><br><br>
-                                      Se sim, com qualquer pessoa ou mais com familiares?
+                                     A criança busca e demonstra carinho? Se sim, com qualquer pessoa ou mais com familiares?
                                      <input type="text" name="">
                                      <br><br> 
                                      Quais os maiores interesses da criança? 
@@ -285,8 +185,7 @@ input:checked[type="checkbox"]:before{
                                      A criança brinca sozinha? 
                                      <input type="checkbox" name="">
                                      <br><br>
-                                     Brinca com outras crianças? <input type="checkbox" name=""><br><br>
-                                      Fale um pouco sobre como é a socialização.
+                                     Brinca com outras crianças? Fale um pouco sobre como é a socialização.
                                      <input type="text" name="">
                                      <br><br>
                                      Compartilha objetos? 
@@ -301,8 +200,64 @@ input:checked[type="checkbox"]:before{
                                     Quais os comportamentos que a criança apresenta diante de frustrações?
                                     <input type="text">
                                     <br><br>
-                                    <input type="submit" name="submit" id="submit">
-                   
+                                    <h3>FONOAUDIOLOGIA</h3>
+                      <label>
+                          A criança tem dificuldade de fala?
+                          <input type="checkbox" name="dificuldadedefala">
+                        </label> <br><br>
+                        <label>
+                            A criança tem dificuldade de mastigar?
+                            <input type="checkbox" name="dificuldadedemastigar">
+                           </label> <br><br>
+                           A criança apresenta sialorreia? (salivação em excesso) 
+                           <input type="checkbox" name="">
+                           <label> <br><br>
+                           <label>
+                           A criança apresenta tosse ou engasgo quando se alimenta?
+                           <input type="checkbox" name=""> 
+                           <label> <br><br>
+                           <label>
+                           A criança apresenta dificuldade para se comunicar ( não usa gestos ou fala)?         
+                           <input type="checkbox" name="">
+                           <label> <br><br>
+                           <label>
+                           A criança se alimenta de todas as consistência ( líquido, pastoso e sólido)?
+                           <input type="checkbox" name="">
+                           <label> <br><br>
+                           <label>
+                           A criança apresenta ecolalias tardias ou imediatas (repetir falas das pessoas ou de desenhos animados)?
+                           <input type="checkbox" name="">
+                           <label> <br><br>
+                           <label>
+                           A criança tem dificuldade de olhar ou manter o contato ocular com as pessoas? 
+                           <input type="checkbox" name="">
+                           <label> <br><br>
+                           <label>
+                           A criança demorou a falar ou fala poucas palavras?
+                           <input type="checkbox" name="">
+                           <label> <br><br>
+                           <label>
+                           A criança tem dificuldades no brincar pois, apenas gira os brinquedos ou joga no chão?
+                           <input type="checkbox" name="">
+                           <label> <br><br>
+                           <label>
+                           A criança apresenta dificuldades no brincar com outras crianças ou adultos (só brinca só e quando alguém se aproxima ele se afasta)?
+                           <input type="checkbox" name="">
+                           <br><br>
+                           <h3>Medicamentos</h3>
+                           <label>
+                           Informar se a criança ingere algum medicamento
+                           <input type="text" name="">
+                           <br><br>
+                           <label>
+                               Inserir laudo da criança
+                                <input type="file" name="arquivos" class="btn btn-success"  accept=".pdf"  multiple />
+                            </label>
+                           <div style="height: 300px; width: 100%;">
+                           <embed src="" type="application/pdf" width="100%" height="100%">
+                           <div>
+                           <br><br>
+                           <input type="submit" name="submit" id="submit">
             </fieldset>
         </form>
     </div>
