@@ -23,9 +23,18 @@
                     <input type="text" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">Email</label>
                 </div>
-                
+                <br><br>
                 <div class="inputBox">
-                    
+                    <input type="password" name="senha" class="inputUser" required>
+                    <label for="senha" class="labelInput">Senha</label>
+                <br><br>
+                </div>
+                    <div class="inputBox">
+                    <input type="password" name="confirmarsenha" class="inputUser" required>
+                    <label for="confirmarsenha" class="labelInput">Confirme sua Senha</label>
+                </div>
+                <br>
+                <div class="inputBox">   
                 </div>
                 <p>Sexo:</p>
                 <input type="radio" id="feminino" name="genero" value="feminino" required>

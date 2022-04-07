@@ -1,17 +1,12 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(to right, rgb(255, 255, 0), rgb(0, 0, 255));
+     background-image: linear-gradient(to right, rgb(255, 255, 0), rgb(0, 0, 255)); 
 }
-.box{
+ .box{
     color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 15px;
-    border-radius: 15px;
-}
+    
+} 
 fieldset{
     border: 3px solid dodgerblue;
 }
@@ -67,4 +62,33 @@ legend{
 }
 #submit:hover{
     background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
+}
+input[type="checkbox"]{
+position: relative;
+width: 40px;
+height: 20px;
+-webkit-appearance: none;
+background: #c6c6c6;
+outline: none;
+border-radius: 20px;
+box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+}
+input:checked[type="checkbox"]{
+background: #03a9f4;
+}
+input[type="checkbox"]:before{
+content: "";
+position: absolute;
+width: 20px;
+height: 20px;
+border-radius: 20px;
+top: 0;
+left: 0;
+background: #fff;
+transform: scale(1.1);
+box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+transition: .5s;
+}
+input:checked[type="checkbox"]:before{
+left: 20px;
 }
