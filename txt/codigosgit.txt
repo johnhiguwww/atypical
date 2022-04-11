@@ -1,0 +1,6 @@
+git push --set-upstream origin main
+git push
+git status
+git add -A
+gir commit -m
+git push -u origin main

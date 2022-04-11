@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" type="imagex/png" href = "./assets/img/iconpq.png ">
+    <link rel="shortcut icon" type="imagex/png" href = "./assets/img/iconpq.png">
     <link rel="stylesheet" href="./assets/styles/style_cadastro_crianca.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Criança</title> 
 </head>
 <body>
     <div class="box">
-        <form action="./crianca.php">
+        <form action="./CRUD-CRIANCA/crianca.php" method="post">
             <fieldset>
                 <legend><b>Cadastro de Criança</b></legend>
                 <legend><b>*Gerenciado pelos reponsaveis*</b></legend>  
@@ -25,11 +25,16 @@
                     <label for="email" class="labelInput">Email</label>
                 </div>
                 <br><br>
-            
                 <div class="inputBox">
                     <input type="password" name="senha" class="inputUser" required>
                     <label for="senha" class="labelInput">Senha</label>
-                    
+                </div> 
+                <br><br>
+                <div class="inputBox">
+                    <input type="password" name="confirmarsenha" class="inputUser" required>
+                    <label for="confirmarsenha" class="labelInput">Confirme sua Senha</label>
+                </div>
+                <div class="inputBox">         
                 <p>Deficiência:</p>
                 <input type="radio" id="autismo" name="deficiencia" value="autismo" required>
                 <label for="autismo">Autismo</label>
@@ -100,19 +105,6 @@
                       Video
                       <input type="file" name="arquivos" class="btn btn-success" accept="video/mkv, video/mp4" multiple />                    
                       </label> <br><br>
-                           <h3>Motora</h3>
-                           <label>
-                            A criança tem dificuldade motora fina?<br>
-                            *por exemplo pegada de lápis e talheres*
-                            <br>
-                            <input type="checkbox" name="motorafina">
-                            </label> <br><br>
-                            <label>
-                                A criança tem dificuldade motora grossa? <br>
-                                *por exemplo deficuldade em andar*
-                                <br>
-                                <input type="checkbox" name="motoragrossa">
-                                </label><br>
                                 <h3>Aprendizagem</h3>
                                 <label>
                                     A criança tem dificuldade de aprendizagem?
@@ -200,6 +192,18 @@
                                     Quais os comportamentos que a criança apresenta diante de frustrações?
                                     <input type="text">
                                     <br><br>
+                                    <label>
+                            A criança tem dificuldade motora fina?<br>
+                            *por exemplo pegada de lápis e talheres*
+                            <br>
+                            <input type="checkbox" name="motorafina">
+                            </label> <br><br>
+                            <label>
+                                A criança tem dificuldade motora grossa? <br>
+                                *por exemplo deficuldade em andar*
+                                <br>
+                                <input type="checkbox" name="motoragrossa">
+                                </label><br>
                                     <h3>FONOAUDIOLOGIA</h3>
                       <label>
                           A criança tem dificuldade de fala?
@@ -253,9 +257,6 @@
                                Inserir laudo da criança
                                 <input type="file" name="arquivos" class="btn btn-success"  accept=".pdf"  multiple />
                             </label>
-                           <div style="height: 300px; width: 100%;">
-                           <embed src="" type="application/pdf" width="100%" height="100%">
-                           <div>
                            <br><br>
                            <input type="submit" name="submit" id="submit">
             </fieldset>

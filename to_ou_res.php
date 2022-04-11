@@ -15,7 +15,7 @@
       <h1>Cadastro</h1>
       <H2>Você é?</H2>
       <br><br>
-  <form action="cadastro_terapeuta.php">
+  <form action="cadastro_terapeuta.php" method="post">
       <button type="submit">Terapeuta</button>
       <br><br>
       </form>
