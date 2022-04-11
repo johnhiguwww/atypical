@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="box">
-        <form action="./crianca.php" method="post">
+        <form action="./CRUD-CRIANCA/crianca.php" method="post">
             <fieldset>
                 <legend><b>Cadastro de Criança</b></legend>
                 <legend><b>*Gerenciado pelos reponsaveis*</b></legend>  

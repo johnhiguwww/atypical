@@ -1,6 +1,6 @@
-git init
+git push --set-upstream origin main
 git push
-git add -A
 git status
-git commit -m "commit "
-git push --set-upstream origin master
+git add -A
+gir commit -m
+git push -u origin main
