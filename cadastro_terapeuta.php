@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="box">
-        <form action="./terapeuta.php">
+        <form action="./terapeuta.php" method="post">
             <fieldset>
                 <legend><b>Cadastro de Terapeutas</b></legend>
                 <br>
