@@ -23,7 +23,7 @@ Class Terapeuta{
     }
     //FUNCAO DE CADASTRAR TERAPEUTAS NO BANCO DADOS 
     public function cadastrarTerapeuta($nome_terapeuta, $email_terapeuta, $senha_terapeuta, $formacao, $registromedico, $tempoexperiencia)
-        {     
+    {     
         // ANTES DE CADSTRAR VERIFICAR SE JA TEM O EMAIL CADASTRADO
         $cmd = $this->pdo->prepare("SELECT id_terapeuta from terapeuta WHERE email_terapeuta = :e");
         $cmd -> bindValue(":e",$email_terapeuta);

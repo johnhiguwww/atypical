@@ -29,6 +29,27 @@
                 <div class="inputBox">
                     <input type="password" name="senha" class="inputUser" required>
                     <label for="senha" class="labelInput">Senha</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="password" name="confirmarsenha" class="inputUser" required>
+                    <label for="senha" class="labelInput">Senha</label>
+                </div>
+                <br><br> 
+                <script>
+                    function mostrarSenha() 
+                    {
+                        var tipo = document.getElementById("senha");
+                        var tipo2 = document.getElementById("confirmarsenha")
+                        if(tipo.type == "password") {
+                            tipo.type = "text";
+                            tipo2.type = "text";
+                        }else{
+                            tipo.type ="password";
+                            tipo2.type ="password";
+                        }
+                    }
+                </script>  
                     
                 <p>Deficiência:</p>
                 <input type="radio" id="autismo" name="deficiencia" value="autismo" required>
