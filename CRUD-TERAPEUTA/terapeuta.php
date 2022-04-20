@@ -1,114 +1,133 @@
 <?php
-require_once 'data-terapeuta.php';
-$p = new Terapeuta("atypical","localhost","root","");
+    require_once 'data-terapeuta.php';
+    $p = new Terapeuta("atypical","localhost","root","");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8"/>
         <title>CRUD TERAPEUTA</title>
-        <link rel="stylesheet" href="./style_terapeuta.css">
+        <link rel="stylesheet" href="style_terapeuta.css">
     </head>
     <body>
         <?php
-        if(isset($_POST["nome"]))
+        if(isset($_POST['nome_terapeuta']))//CLICOU NO BOTÃO CADASTRAR OU EDITAR
         {
-            $nome = addslashes($_POST["nome"]);
-            $email = addslashes($_POST["email"]);
-            if (!empty($nome) && !empty($email)){
-                //cadastrar
-                if(!$p->cadastrarPessoa($nome, $email))
+        //----------------------------------EDITAR------------------------------
+            if(isset($_GET['id_terapeuta_update']) && !empty($_GET['id_terapeuta_update']))
+            {
+                $ip_upd = addslashes($_GET['id_terapeuta_update']);
+                $nome_terapeuta = addslashes($_POST['nome_terapeuta']);
+                $email_terapeuta = addslashes($_POST['email_terapeuta']);
+                $senha_terapeuta = addslashes($_POST['senha_terapeuta']);
+                $formacao = addslashes($_POST['formacao']);
+                $registromedico = addslashes($_POST['registro_medico']);
+                $tempoexperiencia = addslashes($_POST['tempo_experiencia']);
+                if (!empty($nome_terapeuta) && !empty($email_terapeuta) && !empty($senha_terapeuta) && !empty($formacao) && !empty($registromedico) && !empty($tempoexperiencia))
                 {
-                    echo "Email ja esta cadastrado!";
+                    //EDITAR
+                    $p->atualizarDados($ip_upd, $nome_terapeuta, $email_terapeuta, $senha_terapeuta, $formacao, $registromedico, $tempoexperiencia);
+                    header("location: terapeuta.php");
                 }
+                else
+                {
+                    ?>
+                    <div>
+                        <img src="./atypical/assets/icon/aviso.png">
+                        <h4>Preencha todos os campos</h4>
+                    </div>
+                    <?php
+                }          
             }
+        //---------------------------------CADASTRAR-----------------------------
+            else
+            {
+                $nome_terapeuta = addslashes($_POST['nome_terapeuta']);
+                $email_terapeuta = addslashes($_POST['email_terapeuta']);
+                $senha_terapeuta = addslashes($_POST['senha_terapeuta']);
+                $formacao = addslashes($_POST['formacao']);
+                $registromedico = addslashes($_POST['registro_medico']);
+                $tempoexperiencia = addslashes($_POST['tempo_experiencia']);
+                if (!empty($nome_terapeuta) && !empty($email_terapeuta) && !empty($senha_terapeuta) && !empty($formacao) && !empty($registromedico) && !empty($tempoexperiencia))
+                {
+                    //cadastrar
+                    if(!$p->cadastrarTerapeuta($nome_terapeuta, $email_terapeuta, $senha_terapeuta, $formacao, $registromedico, $tempoexperiencia))
+                    {
+                        echo "Email ja esta cadastrado!";
+                    }
             else
             {
                 echo "Preencha todos os campos";
-            }                
-        }
+                }
+            }     
+        }           
+         ?>
+        <?php
+            if(isset($_GET['id_terapeuta_up']))//SE A PESSOA CLICOU EM EDITAR
+            {
+                $id_terapeuta_update = addslashes($_GET['id_terapeuta_update']);
+                $res = $p->buscarDadosTerapeuta($id_terapeuta_update);
+            }
         ?>
         <section id="esquerda">
-        <div class="box">
-        <form action="./data-terapeuta.php">
-            <fieldset>
+        <div class="box"> 
+        <form method="POST" >
                 <legend><b>Cadastro de Terapeutas</b></legend>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome completo</label>
+                    <input type="text" name="nome_terapeuta" id="nome_terapeuta" class="inputUser" value="<?php if(isset($res)){echo $res['nome_terapeuta'];} ?>" required>
+                    <label >Nome completo</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="email" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">Email</label>
+                    <input type="email" name="email_terapeuta" id="email_terapeuta" class="inputUser" value="<?php if(isset($res)){echo $res['email_terapeuta'];} ?>" required>
+                    <label >Email</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="password" name="senha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Senha</label>
+                    <input type="password" name="senha_terapeuta" class="inputUser" id="senha_terapeuta" value="<?php if(isset($res)){echo $res['senha_terapeuta'];} ?>" required>
+                    <label >Senha</label>
                 <br><br>
                 </div>
                     <div class="inputBox">
-                    <input type="password" name="confirmarsenha" class="inputUser" required>
-                    <label for="confirmarsenha" class="labelInput">Confirme sua Senha</label>
+                    <input type="password" name="rep_senha" class="inputUser" required>
+                    <label >Confirme sua Senha</label>
                 </div>
                 <br>
-                <div class="inputBox">   
-                </div>
-                <p>Sexo:</p>
-                <input type="radio" id="feminino" name="genero" value="feminino" required>
-                <label for="feminino">Feminino</label>
-                <br>
-                <input type="radio" id="masculino" name="genero" value="masculino" required>
-                <label for="masculino">Masculino</label>
-                <br>
-                <input type="radio" id="outro" name="genero" value="outro" required>
-                <label for="outro">Outro</label>
-                <br><br>
-                <label for="data_nascimento"><b>Data de Nascimento:</b></label>
-                <input type="date" name="data_nascimento" id="data_nascimento" required>
-                <br><br><br>
                 <div class="inputBox">
-                    <input type="text" name="formação" id="formação" class="inputUser" required>
-                    <label for="formação" class="labelInput">Formação</label>
+                    <input type="text" name="formacao" id="formacao" class="inputUser" value="<?php if(isset($res)){echo $res['formacao'];} ?>" required>
+                    <label >Formação</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="text" name="registro medico" id="registro medico" class="inputUser" required>
-                    <label for="registro medico" class="labelInput">Registro Medico</label>
+                    <input type="text" name="registro_medico" id="registro_medico" class="inputUser" value="<?php if(isset($res)){echo $res['registro_medico'];} ?>" required>
+                    <label >Registro Medico</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="text" name="tempo de experiencia" id="tempo de experiencia" class="inputUser" required>
-                    <label for="tempo de experiencia" class="labelInput">Tempo De Experiência</label>
+                    <input type="text" name="tempo_experiencia" id="tempo_experiencia" class="inputUser" value="<?php if(isset($res)){echo $res['tempo_experiencia'];} ?>" required>
+                    <label >Tempo De Experiência</label>
                 </div>
                 <br><br>
-                <input type="submit" name="submit" id="submit">
-            </fieldset>
+                <input type="submit" value="<?php if(isset($res)){echo "Atualizar";}else{echo "Cadastrar";} ?>" >
         </form>
     </div>
         </section>
         <section id="direita">
         <table>
-                <tr>
+                <!-- <tr>
                     <td>ID</td>
                     <td>NOME COMPLETO</td>
                     <td>EMAIL</td>
                     <td>SENHA</td>
-                    <td>CONFIRME SUA SENHA</td>
-                    <td>SEXO_MASCULINO</td>
-                    <td>SEXO_FEMININO</td>
-                    <td>SEXO_OUTROS</td>
                     <td>DATA DE NASCIMENTO</td>
                     <td>FORMACAO</td>
                     <td>REGISTRO MEDICO</td>
                     <td>TEMPO DE EXPERIENCIA</td>               
-                </tr>
+                </tr> -->
             <?php
                 $dados = $p->buscarDados();
-                if(count($dados)> 0)//TEM PESSOAS NO BANCO DE DADOS?
-
+                if(count($dados)> 0)//TEM PESSOAS NO BANCO DE DADOS?\
                 {
                     for ($i=0; $i < count($dados); $i++)
                     { 
@@ -120,18 +139,37 @@ $p = new Terapeuta("atypical","localhost","root","");
                                 echo "<td>".$v."</td>";
                             }
                         }
-                    ?>
-                        <td><a href="">Editar</a><a href="">Excluir</a></td>
+                ?>
+                <td>
+                        <a href="terapeuta.php?id_terapeuta_update=<?php echo $dados [$i]['id_terapeuta'];?>">Editar</a>
+                        <a href="terapeuta.php?id_terapeuta=<?php echo $dados [$i]['id_terapeuta'];?>">Excluir</a>
+                </td>
                     <?php
+
                     echo "</tr>";
                 }
-            } 
+            }   
             else // O BANCO DE DADOS ESTA VAZIO
             {
-                echo "Ainda não a pessoas cadastradas";
-            }
-            ?>            
+                ?>             
             </table>
+                    <div class="aviso">
+                        <h4>Ainda não a pessoas cadastradas</h4>
+                    </div>
+               <?php
+            }
+            ?>
         </section>
     </body>
 </html> 
+
+<?php
+
+    if(isset($_GET['id_terapeuta']))
+    {
+        $id_terapeuta = addslashes($_GET['id_terapeuta']);
+        $p->excluirTerapeuta($id_terapeuta);
+        header("location: terapeuta.php");
+    }
+        }
+?>
