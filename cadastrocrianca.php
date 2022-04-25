@@ -33,10 +33,10 @@
                 <br><br>
                 <div class="inputBox">
                     <input type="password" name="confirmarsenha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Senha</label>
+                    <label for="senha" class="labelInput">Confirmar Senha</label>
                 </div>
                 <br><br> 
-                <script>
+                <!-- <script>
                     function mostrarSenha() 
                     {
                         var tipo = document.getElementById("senha");
@@ -49,7 +49,7 @@
                             tipo2.type ="password";
                         }
                     }
-                </script>  
+                </script>   -->
                     
                 <p>Deficiência:</p>
                 <input type="radio" id="autismo" name="deficiencia" value="autismo" required>
