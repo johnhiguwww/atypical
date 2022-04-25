@@ -124,34 +124,34 @@
                     }
                 </script>   -->
                 <p>Deficiência:</p>
-                <input type="radio" id="autismo" name="autismo" value="autismo" required>
+                <input type="radio" id="autismo" name="autismo" value="autismo" >
                 <label for="autismo">Autismo</label>
                 <br>
-                <input type="radio" id="sindromededown" name="microsefalia" value="sindromededown" required>
+                <input type="radio" id="sindromededown" name="microsefalia" value="sindromededown" >
                 <label for="sindromededown">Sindrome de Down</label>
                 <br>
-                <input type="radio" id="microsefalia" name="microsefalia" value="microsefalia" required>
+                <input type="radio" id="microsefalia" name="microsefalia" value="microsefalia" >
                 <label for="microsefalia">Microcefalia</label>
                 <br>
-                <input type="radio" id="autismo_sindrome" name="autismo_sindrome" value="aut_sd" required>
+                <input type="radio" id="autismo_sindrome" name="autismo_sindrome" value="aut_sd" >
                 <label for="autismo_sindrome">Autismo e Sindrome de Down</label>
                 <br>
-                <input type="radio" id="autismo_microcefalia" name="autismo_microcefalia" value="aut_micro" required>
+                <input type="radio" id="autismo_microcefalia" name="autismo_microcefalia" value="aut_micro" >
                 <label for="autismo_microcefalia">Autismo e Microcefalia</label>
                 <br>
                 </div>
                 <p>Sexo:</p>
-                <input type="radio" id="genero" name="feminino" value="feminino" required>
+                <input type="radio" id="genero" name="feminino" value="feminino" >
                 <label for="feminino">Feminino</label>
                 <br>
-                <input type="radio" id="genero" name="masculino" value="masculino" required>
+                <input type="radio" id="genero" name="masculino" value="masculino" >
                 <label for="masculino">Masculino</label>
                 <br>
-                <input type="radio" id="genero" name="outros" value="outros" required>
+                <input type="radio" id="genero" name="outros" value="outros" >
                 <label for="outros">Outros</label>
                 <br><br>
                 <label for="data_nas"><b>Data de Nascimento:</b></label>
-                <input type="date_nas" name="data_nas" id="data_nas" required>
+                <input type="date_nas" name="data_nas" id="data_nas" >
                 <br>
                 <div class="inputBox">
                 <h3>Social:</h3>
