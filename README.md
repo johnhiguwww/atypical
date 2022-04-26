@@ -1,2 +1,2 @@
 # atypical
-25/04/22 cadastro criança finalizado ps não testado
+26/04/22 error sintaxe criança.php
