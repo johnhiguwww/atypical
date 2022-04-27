@@ -1,2 +1,2 @@
 # atypical
-26/04/22 error sintaxe criança.php
+27/04/22 error checkbox criança.php

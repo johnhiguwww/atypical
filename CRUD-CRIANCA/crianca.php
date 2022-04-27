@@ -8,18 +8,15 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="imagex/png" href = "./assets/img/iconpq.png ">
     <link rel="stylesheet" href="./assets/styles/style_crianca.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
-
     <title>Criança atipica</title>
 </head>
 <body>
     <?php
-    if(isset($_POST['nome_crianca']))
+    if(isset($_POST['Btenviar']))
     {
-        // print_r($_POST);
+        print_r($_POST);
     //---------------------------------CADASTRAR-----------------------------
     $nome_crianca = addslashes($_POST['nome_crianca']);
     $email_crianca = addslashes($_POST['email_crianca']);
@@ -54,7 +51,6 @@
     $gestacao_risco = addslashes($_POST['gestacao_risco']);
     $gestacao_medicamento = addslashes($_POST['gestacao_medicamento']);
     $crianca_nascimento = addslashes($_POST['crianca_nascimento']);
-    $demonstra_carinho = addslashes($_POST['demonstra_carinho']);
     $carinho_pessoa = addslashes($_POST['carinho_pessoa']);
     $interesses_crianca = addslashes($_POST['interesses_crianca']);
     $brinca_sozinha = addslashes($_POST['brinca_sozinha']);
@@ -74,7 +70,13 @@
     $dificuldade_de_brinca_com_pessoas = addslashes($_POST['dificuldade_de_brinca_com_pessoas']);
     $ingere_medicamento = addslashes($_POST['ingere_medicamento']);
 
-    if(!empty($nome_crianca) && !empty($email_crianca) && !empty($senha_crianca) && !empty($deficiencia))
+    if(!empty($nome_crianca) && 
+    !empty($email_crianca) && 
+    !empty($senha_crianca) && 
+    !empty($deficiencia) &&
+    !empty($genero) &&
+    !empty($data_nas)
+    ) 
     {
         if(!$p->cadastrarCrianca($nome_crianca, 
         $email_crianca,
@@ -109,7 +111,6 @@
         $gestacao_risco,
         $gestacao_medicamento,
         $crianca_nascimento,
-        $demonstra_carinho,
         $carinho_pessoa,
         $interesses_crianca,
         $brinca_sozinha,
@@ -127,8 +128,7 @@
         $demora_de_fala,
         $dificuldade_de_brinca,
         $dificuldade_de_brinca_com_pessoas,
-        $ingere_medicamento
-        ))
+        $ingere_medicamento))
         {
             echo "Ocorreu um erro";
         }
@@ -140,7 +140,7 @@
     ?>
     <section id="esquerda">
     <div class="box">
-        <form action="./crianca.php" method="POST">
+        <form method="POST">
             <fieldset>
                 <legend><b>Cadastro de Criança</b></legend>
                 <legend><b>*Gerenciado pelos reponsaveis*</b></legend>  
@@ -215,24 +215,21 @@
                 <hr>
                 <label>
                 A criança tem comportamentos inadequados?
-                <input type="checkbox" name="comportamentos" id="comportamentos" value="A criança apresenta comportamentos inadequados ">
+                <input type="checkbox" name="comportamentos" id="comportamentos" value="A criança apresenta comportamentos inadequados" >
                 </label> <br>
                 </div>
                 <br>
                 <div class="inputBox">
-                <label>
-                A criança tem interação social?
-                <input type="checkbox" name="interacao_social" id="interacao_social" value="A criança apresenta interação social">
-                </label> 
+                    <label>A criança tem interação social?</label> 
+                    <input type="checkbox" name="interacao_social" id="interacao_social" value="A criança apresenta interação social">
                 </div>
                 <br>
                 <div class="inputBox">
-                <label>
-                 A criança tem comportamentos de esteriotipia?
-                 <input type="checkbox" name="esteriotipia" id="esteriotipia" value="A criança apresenta comportamentos de esteriotipia">
-                </label>
+                        <label>A criança tem comportamentos de esteriotipia?</label>
+                     <input type="checkbox" name="esteriotipia" id="esteriotipia" value="A criança apresenta comportamentos de esteriotipia">
+                </div>               </div>
                 <div class="inputBox">
-                  <br>    
+                <br>    
                 <label>
                  A criança se comunica verbalmente?
                  <input type="checkbox" name="comunica_verbalmente" id="comunica_verbalmente" value="A criança apresenta comunica verbalmente">            
@@ -245,12 +242,10 @@
                     <input type="text" name="links_hiperfoco" id="links_hiperfoco" placeholder="Adicione links do hiperfoco">  
                 </label> <br><br>
                 <label>
-                    Fotos
-                    <input type="text" name="links_hiperfoco2" id="links_hiperfoco2" />
+                    <input type="text" name="links_hiperfoco2" id="links_hiperfoco2" placeholder="Adicione links do hiperfoco"/>
                     </label> <br><br>
                   <label>
-                      Video
-                      <input type="text" name="links_hiperfoco3" id="links_hiperfoco3" />                    
+                      <input type="text" name="links_hiperfoco3" id="links_hiperfoco3" placeholder="Adicione links do hiperfoco"/>                    
                       </label> <br><br>
                       <hr>
                            <h3>Motora</h3>
@@ -418,7 +413,7 @@
                            <embed src="" type="application/pdf" width="100%" height="100%">
                            <div>
                            <br><br>
-                           <input type="submit" name="submit" id="submit" value="Enviar">
+                           <input type="submit" name="Btenviar"  value="Enviar">
             </fieldset>
         </form>
     </div>
