@@ -6,12 +6,15 @@
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8"/>
-        <title>CRUD TERAPEUTA</title>
+        <title>CADASTRO DE TERAPEUTA</title>
         <link rel="stylesheet" href="./assets/styles/style_cadastro_terapeuta.css">
+        <link rel="shortcut icon" type="imagex/png" href = "./assets/img/iconpq.png ">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     </head>
     <body>          
         <?php
-        if(isset($_POST['nome_terapeuta']))//CLICOU NO BOTÃO CADASTRAR OU EDITAR
+        if(isset($_POST['BtCadastrar']))//CLICOU NO BOTÃO CADASTRAR OU EDITAR
         {
         //---------------------------------CADASTRAR-----------------------------
                 $nome_terapeuta = addslashes($_POST['nome_terapeuta']);
@@ -34,47 +37,38 @@
                 }
             }    
         ?>
-        <section id="esquerda">
-        <div class="box"> 
-        <form method="POST" >
-                <legend><b>Cadastro de Terapeutas</b></legend>
-                <br>
+        <div class="container">
+        <!-- <section id="esquerda">
+        <div class="box">  -->
+        <div class="row">
+        <h1 class="display-6">Cadastro de Terapeuta</h1>
+        <div class="col-6  justify-content-start">
+        <form action="./CRUD-TERAPEUTA/terapeuta.php" method="POST">
+        <fieldset>        
                 <div class="inputBox">
                     <input type="text" name="nome_terapeuta" id="nome_terapeuta" class="inputUser" value="<?php if(isset($res)){echo $res['nome_terapeuta'];} ?>" required>
                     <label >Nome completo</label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputBox">
                     <input type="email" name="email_terapeuta" id="email_terapeuta" class="inputUser" value="<?php if(isset($res)){echo $res['email_terapeuta'];} ?>" required>
                     <label >Email</label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputBox">
-                    <input type="password" name="senha_terapeuta" class="inputUser" id="senha_terapeuta" value="<?php if(isset($res)){echo $res['senha_terapeuta'];} ?>" required>
+                    <input type="password" name="senha_terapeuta" class="inputUser" id="senha_terapeuta" value="<?php if(isset($res)){echo $res['senha'];} ?>" required>
                     <label >Senha</label>
                 <br><br>
                 </div>
                     <div class="inputBox">
-                    <input type="password" name="confirmarsenha" class="inputUser" required>
+                    <input type="password" name="confirmarsenha" id="confirmarsenha" class="inputUser" required>
                     <label >Confirme sua Senha</label>
                 </div>
                 <br><br>
-                <button type="button" onclick="mostrarSenha()">Mostrar a Senha</button>
+                <button type="button" class="btn btn-outline-light" onclick="mostrarSenha()">Mostrar a Senha</button>
+                
                 <br><br>
-                <script>
-                    function mostrarSenha() 
-                    {
-                        var tipo = document.getElementById("senha_terapeuta");
-                        var tipo2 = document.getElementById("confirmarsenha")
-                        if(tipo.type == "password") {
-                            tipo.type = "text";
-                            tipo2.type = "text";
-                        }else{
-                            tipo.type ="password";
-                            tipo2.type ="password";
-                        }
-                    }
-                </script>
+                
                 <br>
                 <div class="inputBox">
                     <input type="text" name="formacao" id="formacao" class="inputUser" value="<?php if(isset($res)){echo $res['formacao'];} ?>" required>
@@ -91,8 +85,38 @@
                     <label >Tempo De Experiência</label>
                 </div>
                 <br><br>
-                <input type="submit" value="Cadastrar" >
+                
+               
+                <input class="btn btn-outline-light" type="submit" name="BtCadastrar"value="Cadastrar">
+                </fieldset>  
             </form>
+            </div>
+            
+            
+                <div class="col-6">
+                <img src="./assets/img/imgcadastro.png" class="rounded float-end" alt="...">
+
+            
+                </div>
         </div>
-    </body>
+            </div>
+        </div>
+        <script>
+                    function mostrarSenha() 
+                     {
+                        var tipo = document.getElementById("senha_terapeuta");
+                        var tipo2 = document.getElementById("confirmarsenha")
+                        if(tipo.type == "password") {
+                            tipo.type = "text";
+                            tipo2.type = "text";                            
+                        }else{
+                            tipo.type ="password";
+                            tipo2.type ="password";
+                        }
+                    }   
+                        </script>
+                                      
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        
+</body>
 </html> 

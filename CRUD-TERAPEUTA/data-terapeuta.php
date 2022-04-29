@@ -22,7 +22,12 @@ Class Terapeuta{
         return $res;  
     }
     //FUNCAO DE CADASTRAR TERAPEUTAS NO BANCO DADOS 
-    public function cadastrarTerapeuta($nome_terapeuta, $email_terapeuta, $senha_terapeuta, $formacao, $registromedico, $tempoexperiencia)
+    public function cadastrarTerapeuta($nome_terapeuta,
+    $email_terapeuta,
+    $senha_terapeuta,
+    $formacao,
+    $registromedico,
+    $tempoexperiencia)
     {     
         // ANTES DE CADSTRAR VERIFICAR SE JA TEM O EMAIL CADASTRADO
         $cmd = $this->pdo->prepare("SELECT id_terapeuta from terapeuta WHERE email_terapeuta = :e");
@@ -34,7 +39,12 @@ Class Terapeuta{
         }else // nao foi encontrado o email
         {
             $cmd = $this->pdo->prepare("INSERT INTO terapeuta 
-            (nome_terapeuta, email_terapeuta, senha_terapeuta, formacao, registro_medico, tempo_experiencia)
+            (nome_terapeuta,
+            email_terapeuta,
+            senha_terapeuta,
+            formacao,
+            registro_medico,
+            tempo_experiencia)
             VALUES (:n, :e, :s, :f, :r, :t)");
             $cmd->bindValue(":n",$nome_terapeuta);
             $cmd->bindValue(":e",$email_terapeuta);
@@ -73,5 +83,13 @@ Class Terapeuta{
         $cmd->bindValue(":t",$tempoexperiencia);
         $cmd->execute(); 
     }
+// ====================================================================================================================================================
+//     public function resultadoPesquisa($email_terapeuta, $senha_terapeuta)
+//     {
+//     $cmd = $this->pdo->prepare("SELECT id_terapeuta from terapeuta WHERE email_terapeuta = :e");
+//     $cmd -> bindValue(":e",$email_terapeuta);
+//     $cmd->execute();
+    
+// }
 }
 ?>
