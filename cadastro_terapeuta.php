@@ -20,22 +20,66 @@
                 $nome_terapeuta = addslashes($_POST['nome_terapeuta']);
                 $email_terapeuta = addslashes($_POST['email_terapeuta']);
                 $senha_terapeuta = addslashes($_POST['senha_terapeuta']);
+                $confirmarSenha = addslashes($_POST['confirmarsenha']);
                 $formacao = addslashes($_POST['formacao']);
                 $registromedico = addslashes($_POST['registro_medico']);
                 $tempoexperiencia = addslashes($_POST['tempo_experiencia']);
                 if (!empty($nome_terapeuta) && !empty($email_terapeuta) && !empty($senha_terapeuta) && !empty($formacao) && !empty($registromedico) && !empty($tempoexperiencia))
                 {
-                    //cadastrar
-                    if(!$p->cadastrarTerapeuta($nome_terapeuta, $email_terapeuta, $senha_terapeuta, $formacao, $registromedico, $tempoexperiencia))
+                    $p->$conectar("atypical","localhost","root","");
+                    if($p->msgErro == "") // se esta tudo certo
                     {
-                        echo "Preencha todos os dados";
-                    }    
+                        if($senha_terapeuta == $confirmarSenha)
+                        {
+                            if($u->cadastrarTerapeuta($nome_terapeuta,
+                            $email_terapeuta,
+                            $senha_terapeuta,
+                            $formacao,
+                            $registromedico,
+                            $tempoexperiencia))
+                            {
+                                ?>
+                                <div id="msg-sucesso">
+                                    Cadastrado com sucesso! Acesse o login para entrar!
+                                </div>
+                                <?php
+                            }
+                            else
+                            {
+                                ?>
+                                <div class="msg-erro">
+                                    Email ja cadastrado!
+                                </div>
+                                <?php
+                            }
+                        }
+                        else
+                        {
+                            ?>
+                            <div class="msg-erro">
+                                Senha e confirmar senha não correspondem!
+                            </div>
+                            <?php
+                        }
+                        
+                    }
                     else
                     {
-                        echo "Sucesso";
-                    } 
+                        ?>
+                        <div>
+                            <?echo "Erro: ".$u->msgErro;?>
+                        </div>
+                        <?php
+                    }
+                }else
+                {
+                    ?>
+                    <div class="msg-erro">
+                        Preencha todos os campos!
+                    </div>
+                    <?php
                 }
-            }    
+            } 
         ?>
         <div class="container">
         <!-- <section id="esquerda">
@@ -56,7 +100,7 @@
                 </div>
                 <br>
                 <div class="inputBox">
-                    <input type="password" name="senha_terapeuta" class="inputUser" id="senha_terapeuta" value="<?php if(isset($res)){echo $res['senha'];} ?>" required>
+                    <input type="password" name="senha_terapeuta" class="inputUser" id="senha_terapeuta" value="<?php if(isset($res)){echo $res['senha_terapeuta'];} ?>" required>
                     <label >Senha</label>
                 <br><br>
                 </div>
@@ -66,9 +110,7 @@
                 </div>
                 <br><br>
                 <button type="button" class="btn btn-outline-light" onclick="mostrarSenha()">Mostrar a Senha</button>
-                
                 <br><br>
-                
                 <br>
                 <div class="inputBox">
                     <input type="text" name="formacao" id="formacao" class="inputUser" value="<?php if(isset($res)){echo $res['formacao'];} ?>" required>
@@ -85,18 +127,12 @@
                     <label >Tempo De Experiência</label>
                 </div>
                 <br><br>
-                
-               
                 <input class="btn btn-outline-light" type="submit" name="BtCadastrar"value="Cadastrar">
                 </fieldset>  
             </form>
             </div>
-            
-            
                 <div class="col-6">
-                <img src="./assets/img/imgcadastro.png" class="rounded float-end" alt="...">
-
-            
+                <img src="./assets/img/imgterapeuta.png" class="rounded float-end" alt="...">
                 </div>
         </div>
             </div>

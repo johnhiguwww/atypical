@@ -3,12 +3,12 @@ body{
      background-image: linear-gradient(to right, rgb(255, 255, 0), rgb(0, 0, 255)); 
 }
  .box{
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    
+    background-image: linear-gradient(to right, rgb(255, 255, 0), rgb(0, 0, 255));
+    text-decoration-color: black;
 } 
 fieldset{
     border: 3px solid dodgerblue;
+
 }
 legend{
     border: 1px solid dodgerblue;
@@ -19,13 +19,14 @@ legend{
 }
 .inputBox{
     position: relative;
+
 }
 .inputUser{
     background: none;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid hsl(0, 0%, 2%);
     outline: none;
-    color: white;
+    color: #040404;
     font-size: 15px;
     width: 100%;
     letter-spacing: 2px;
@@ -90,4 +91,7 @@ transition: .5s;
 }
 input:checked[type="checkbox"]:before{
 left: 20px;
+}
+password, text{
+    color: black;
 }

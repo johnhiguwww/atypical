@@ -18,7 +18,16 @@ Class Crianca{
     public function buscarDados()
     {
         $res = array();
-        $cmd = $this->pdo->query("SELECT * FROM crianca ORDER BY id_crianca ");
+        $cmd = $this->pdo->query("SELECT id_crianca,
+                                nome_crianca,
+                                deficiencia,genero,
+                                data_nas, social,
+                                links_hiperfoco,links_hiperfoco2
+                                links_hiperfoco3,motora,
+                                aprendizagem,gestacao,
+                                desenvolvimento_motor,psicologia,
+                                fonoaudiologia,medicamento
+                                FROM crianca");
         $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }

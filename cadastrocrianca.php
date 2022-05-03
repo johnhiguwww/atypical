@@ -1,286 +1,295 @@
+<?php
+    require_once 'C:\xampp\htdocs\atypical\CRUD-CRIANCA\data-crianca.php';
+    $p = new Crianca("atypical","localhost","root","");
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CADASTRO CRIANÇA</title>
+    <link rel="stylesheet" href="C:\xampp\htdocs\atypical\assets\styles\style_cadastro_crianca.css">
+    <link rel="stylesheet" href="./assets/img/imgcadastro.png">
     <link rel="shortcut icon" type="imagex/png" href = "./assets/img/iconpq.png ">
-    <link rel="stylesheet" href="./assets/styles/style_cadastro_crianca.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Criança</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    
 </head>
 <body>
+    <?php
+    if(isset($_POST['Btcadastrar']))
+    {
+       
+    //---------------------------------CADASTRAR-----------------------------
+    $nome_crianca = addslashes($_POST['nome_crianca']);
+    $email_crianca = addslashes($_POST['email_crianca']);
+    $senha_crianca = addslashes($_POST['senha_crianca']);
+    $deficiencia = addslashes($_POST['deficiencia']);
+    $genero = addslashes($_POST['genero']);
+    $data_nas = addslashes($_POST['data_nas']);
+    $social = addslashes($_POST['social']);
+    $links_hiperfoco = addslashes($_POST['links_hiperfoco']);
+    $links_hiperfoco2 = addslashes($_POST['links_hiperfoco2']);
+    $links_hiperfoco3 = addslashes($_POST['links_hiperfoco3']);
+    $motora = addslashes($_POST['motora']);
+    $aprendizagem = addslashes($_POST['aprendizagem']);
+    $gestacao = addslashes($_POST['gestacao']);
+    $desenvolvimento_motor = addslashes($_POST['desenvolvimento_motor']);
+    $psicologia = addslashes($_POST['psicologia']);
+    $fonoaudiologia = addslashes($_POST['fonoaudiologia']);
+    $medicamento = addslashes($_POST['medicamento']);
+    
+    if(!empty($nome_crianca) && 
+    !empty($email_crianca) && 
+    !empty($senha_crianca) && 
+    !empty($deficiencia) &&
+    !empty($genero) &&
+    !empty($data_nas)&&
+    !empty($social) &&
+    !empty($links_hiperfoco)&&
+    !empty($links_hiperfoco2)&&
+    !empty($links_hiperfoco)&&
+    !empty($motora) &&
+    !empty($aprendizagem) &&
+    !empty($gestacao) &&
+    !empty($desenvolvimento_motor) &&
+    !empty($psicologia) &&
+    !empty($fonoaudiologia) &&
+    !empty($medicamento) 
+    ) 
+    {
+        if(!$p->cadastrarCrianca($nome_crianca, 
+        $email_crianca,
+        $senha_crianca,
+        $deficiencia,
+        $genero,
+        $data_nas,
+        $social,
+        $links_hiperfoco,
+        $links_hiperfoco2,
+        $links_hiperfoco3,
+        $motora,
+        $aprendizagem,
+        $gestacao,
+        $desenvolvimento_motor,
+        $psicologia,
+        $fonoaudiologia,
+        $medicamento))
+        {
+            echo "Ocorreu um erro";
+        }
+        else{
+            echo "Sucesso";
+            }
+        }
+    }
+    ?>
+    <section id="esquerda">
     <div class="box">
-        <form action="./crianca.php">
-            <fieldset>
+        <form action="#" method="POST">
+
                 <legend><b>Cadastro de Criança</b></legend>
                 <legend><b>*Gerenciado pelos reponsaveis*</b></legend>  
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome completo</label>
+                    <input type="text" name="nome_crianca" id="nome_crianca" class="inputUser"  required>
+                    <label for="nome_crianca" class="labelInput">Nome Completo Da Criança</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="text" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">Email</label>
+                    <input type="text" name="email_crianca" id="email_crianca" class="inputUser"  required>
+                    <label for="email_crianca" class="labelInput">Email</label>
                 </div>
                 <br><br>
             
                 <div class="inputBox">
-                    <input type="password" name="senha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Senha</label>
+                    <input type="password" name="senha_crianca" id="senha_crianca" class="inputUser"  required>
+                    <label for="senha_crianca" class="labelInput">Senha</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="password" name="confirmarsenha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Confirmar Senha</label>
+                    <input type="password" name="confirmarsenha" id="confirmarsenha" class="inputUser" required>
+                    <label for="confirmarsenha" class="labelInput">Confirmar Senha</label>
                 </div>
+                <br>
+                <button type="button" class="" onclick="mostrarSenha()">Mostrar a Senha</button>
                 <br><br> 
-                <!-- <script>
-                    function mostrarSenha() 
-                    {
-                        var tipo = document.getElementById("senha");
+                
+                <script>
+                
+                function mostrarSenha() 
+                     {
+                        var tipo = document.getElementById("senha_crianca");
                         var tipo2 = document.getElementById("confirmarsenha")
                         if(tipo.type == "password") {
                             tipo.type = "text";
-                            tipo2.type = "text";
+                            tipo2.type = "text";                            
                         }else{
                             tipo.type ="password";
                             tipo2.type ="password";
                         }
-                    }
-                </script>   -->
-                    
+                    }   
+                        </script>
                 <p>Deficiência:</p>
-                <input type="radio" id="autismo" name="deficiencia" value="autismo" required>
+                    <input type="radio" id="autismo" name="deficiencia" value=" autismo" >
                 <label for="autismo">Autismo</label>
                 <br>
-                <input type="radio" id="sindromededown" name="deficiencia" value="sindromededown" required>
+                    <input type="radio" id="sindromededown" name="deficiencia" value=" Sindrome de down">
                 <label for="sindromededown">Sindrome de Down</label>
                 <br>
-                <input type="radio" id="microsefalia" name="deficiencia" value="microsefalia" required>
-                <label for="microsefalia">Microcefalia</label>
+                    <input type="radio" id="microsefalia" name="deficiencia" value="Microcefalia" >
+                <label for="Microcefalia">Microcefalia</label>
                 <br>
-                <input type="radio" id="aut_sd" name="deficiencia" value="aut_sd" required>
-                <label for="aut_sd">Autismo e Sindrome de Down</label>
+                    <input type="radio" id="autismo_sindrome" name="deficiencia" value="Autismo e Sindrome de Down" >
+                <label for="autismo_sindrome">Autismo e Sindrome de Down</label>
                 <br>
-                <input type="radio" id="aut_micro" name="deficiencia" value="aut_micro" required>
-                <label for="aut_micro">Autismo e Microcefalia</label>
+                    <input type="radio" id="autismo_microcefalia" name="deficiencia" value="Autismo e Microcefalia" >
+                <label for="autismo_microcefalia">Autismo e Microcefalia</label>
                 <br>
                 </div>
+                <br>
                 <p>Sexo:</p>
-                <input type="radio" id="feminino" name="genero" value="feminino" required>
+                    <input type="radio" id="feminino" name="genero" value="feminino" >
                 <label for="feminino">Feminino</label>
                 <br>
-                <input type="radio" id="masculino" name="genero" value="masculino" required>
+                    <input type="radio" id="masculino" name="genero" value="masculino" >
                 <label for="masculino">Masculino</label>
                 <br>
-                <input type="radio" id="outros" name="genero" value="outros" required>
+                    <input type="radio" id="outros" name="genero" value="outros" >
                 <label for="outros">Outros</label>
                 <br><br>
-                <label for="data_nascimento"><b>Data de Nascimento:</b></label>
-                <input type="date" name="data_nascimento" id="data_nascimento" required>
+                <label for="data_nas"><b>Data de Nascimento:</b></label>
+                    <input type="date" name="data_nas" id="data_nas" >
                 <br>
-                <div class="inputBox">
+                <hr>
                 <h3>Social:</h3>
-                <label>
-                A criança tem comportamentos inadequados?
-                <input type="checkbox" name="comportamentoinadequados">
-                </label> <br>
-                </div>
-                <br>
-                <div class="inputBox">
-                <label>
-                A criança tem interação social?
-                <input type="checkbox" name="interacaosocial">
-                </label> 
-                </div>
-                <br>
-                <div class="inputBox">
-                <label>
-                 A criança tem comportamentos de esteriotipia?
-                 <input type="checkbox" name="comportamentoesteriotipia">
+                <label for="social">
+                    Defina no texto abaixo como é a relação social do sua criança(ex:*A criança tem comportamentos inadequados?*A criança tem interação social?*A criança tem comportamentos de esteriotipia?*A criança se comunica verbalmente?)
+                    <br><br>
+                    <textarea name="social" style="width:400px; height:100px;"></textarea> 
+                    
                 </label>
-                <div class="inputBox">
-                  <br>    
+                <hr>
+                <h3>Hiperfoco:</h3>
                 <label>
-                 A criança se comunica verbalmente?
-                 <input type="checkbox" name="verbal">            
-                </label> <br>
-                <br>
-                <div class="inputBox">
-                    <h3>Hiperfoco:</h3>
-                <label>
-                    <input type="text" name="linkhiperfoco" placeholder="Adicione links do hiperfoco">  
+                    <input type="text" name="links_hiperfoco" id="links_hiperfoco" placeholder="Adicione links do hiperfoco" >  
                 </label> <br><br>
                 <label>
-                    Fotos
-                    <input type="file" name="arquivos" class="btn btn-success" accept="image/png, image/jpeg" multiple />
-                    </label> <br><br>
-                  <label>
-                      Video
-                      <input type="file" name="arquivos" class="btn btn-success" accept="video/mkv, video/mp4" multiple />                    
-                      </label> <br><br>
-                           <h3>Motora</h3>
-                           <label>
-                            A criança tem dificuldade motora fina?<br>
-                            *por exemplo pegada de lápis e talheres*
-                            <br>
-                            <input type="checkbox" name="motorafina">
-                            </label> <br><br>
-                            <label>
-                                A criança tem dificuldade motora grossa? <br>
-                                *por exemplo deficuldade em andar*
-                                <br>
-                                <input type="checkbox" name="motoragrossa">
-                                </label><br>
-                                <h3>Aprendizagem</h3>
-                                <label>
-                                    A criança tem dificuldade de aprendizagem?
-                                    <input type="checkbox" name="deficaprendizagem">
-                               </label> <br><br>
-                               <label>
-                                   Se sim pode informar quais são:
-                                    <input type="text" name="materias" placeholder="matérias escolares">
-                                   </label> <br><br>
-                                   <label>
-                                       A criança apresenta sinais TDH?
-                                       <input type="checkbox" name="tdg">
-                                   </label> <br><br>
-                                   <h3>Gestação</h3>
-                                   <label>
-                                       Fez pré-natal?
-                                       <input type="checkbox" name="prenatal">
-                                       <br>
-                                    </label>
-                                       <br>
-                                       Quantas semanas começou a sentir?
-                                       <input type="text" name="">
-                                       <br><br>
-                                       Teve alguma doença na gestação?
-                                       <input type="checkbox" name="">
-                                       <br>
-                                       Foi de risco?
-                                       <input type="checkbox" name="">
-                                       <br>
-                                       Fez uso de medicamentos?
-                                       <input type="checkbox" name="">
-                                       <br><br>
-                                    Nasceu com quantas semanas? 
-                                    <input type="text" name="">   
-                                </label> <br>
-                                   <h3>Desenvolvimento motor</h3>
-                                   <label>
-                                   Firmou a cabeça com quanto tempo?
-                                   <input type="text" name="">
-                                   <br><br>
-                                   Sentou com apoio e sem apoio com quanto tempo?
-                                   <input type="text" name="">
-                                   <br><br>
-                                   Engatinhou?
-                                   <input type="checkbox" name="">
-                                   <br><br>
-                                   Andou com quantos anos? 
-                                   <input type="text" name="">
-                                   <br><br>
-                                   Tropeça muito ao andar?
-                                   <input type="checkbox" name="">
-                                   <br><br>
-                                   Sobe escada alternado?
-                                   <input type="checkbox" name="">
-                                   <br><br>
-                                   Anda em linha reta? 
-                                   <input type="checkbox" name="">
-                                   <br><br>
-                                   Pula de um pé só?
-                                   <input type="checkbox" name=""> 
-                                   <br><br>
-                                   <h3>Perguntas direcionadas à área da psicologia</h3>
-                                   <label>
-                                     A criança busca e demonstra carinho? Se sim, com qualquer pessoa ou mais com familiares?
-                                     <input type="text" name="">
-                                     <br><br> 
-                                     Quais os maiores interesses da criança? 
-                                     <input type="text" name="">
-                                     <br><br>
-                                     A criança brinca sozinha? 
-                                     <input type="checkbox" name="">
-                                     <br><br>
-                                     Brinca com outras crianças? Fale um pouco sobre como é a socialização.
-                                     <input type="text" name="">
-                                     <br><br>
-                                     Compartilha objetos? 
-                                     <input type="checkbox" name="">
-                                     <br><br>
-                                     A criança identifica sentimentos? 
-                                     <input type="checkbox" name="">
-                                     <br><br>
-                                     Demonstra empatia (ex.: fica triste ao ver o outro triste)? 
-                                    <input type="checkbox" name="">
-                                    <br><br>
-                                    Quais os comportamentos que a criança apresenta diante de frustrações?
-                                    <input type="text">
-                                    <br><br>
-                                    <h3>FONOAUDIOLOGIA</h3>
-                      <label>
-                          A criança tem dificuldade de fala?
-                          <input type="checkbox" name="dificuldadedefala">
-                        </label> <br><br>
-                        <label>
-                            A criança tem dificuldade de mastigar?
-                            <input type="checkbox" name="dificuldadedemastigar">
-                           </label> <br><br>
-                           A criança apresenta sialorreia? (salivação em excesso) 
-                           <input type="checkbox" name="">
-                           <label> <br><br>
-                           <label>
-                           A criança apresenta tosse ou engasgo quando se alimenta?
-                           <input type="checkbox" name=""> 
-                           <label> <br><br>
-                           <label>
-                           A criança apresenta dificuldade para se comunicar ( não usa gestos ou fala)?         
-                           <input type="checkbox" name="">
-                           <label> <br><br>
-                           <label>
-                           A criança se alimenta de todas as consistência ( líquido, pastoso e sólido)?
-                           <input type="checkbox" name="">
-                           <label> <br><br>
-                           <label>
-                           A criança apresenta ecolalias tardias ou imediatas (repetir falas das pessoas ou de desenhos animados)?
-                           <input type="checkbox" name="">
-                           <label> <br><br>
-                           <label>
-                           A criança tem dificuldade de olhar ou manter o contato ocular com as pessoas? 
-                           <input type="checkbox" name="">
-                           <label> <br><br>
-                           <label>
-                           A criança demorou a falar ou fala poucas palavras?
-                           <input type="checkbox" name="">
-                           <label> <br><br>
-                           <label>
-                           A criança tem dificuldades no brincar pois, apenas gira os brinquedos ou joga no chão?
-                           <input type="checkbox" name="">
-                           <label> <br><br>
-                           <label>
-                           A criança apresenta dificuldades no brincar com outras crianças ou adultos (só brinca só e quando alguém se aproxima ele se afasta)?
-                           <input type="checkbox" name="">
-                           <br><br>
-                           <h3>Medicamentos</h3>
-                           <label>
-                           Informar se a criança ingere algum medicamento
-                           <input type="text" name="">
-                           <br><br>
-                           <label>
-                               Inserir laudo da criança
-                                <input type="file" name="arquivos" class="btn btn-success"  accept=".pdf"  multiple />
-                            </label>
-                           <div style="height: 300px; width: 100%;">
-                           <embed src="" type="application/pdf" width="100%" height="100%">
-                           <div>
-                           <br><br>
-                           <input type="submit" name="submit" id="submit">
+                    <input type="text" name="links_hiperfoco2" id="links_hiperfoco2" placeholder="Adicione links do hiperfoco" />
+                </label> <br><br>
+                <label>
+                    <input type="text" name="links_hiperfoco3" id="links_hiperfoco3" placeholder="Adicione links do hiperfoco" />                    
+                </label> <br><br>
+                <hr>
+                <h3>Motora:</h3>
+                <label>
+                    Defina no texto abaixo como é a dificuldade motora da criança (Ex:A criança tem dificuldade motora fina? *por exemplo pegada de lápis e talheres*
+                    A criança tem dificuldade motora grossa? *por exemplo deficuldade em andar*)
+                    <br><br>
+                    <textarea name="motora" style="width:400px; height:100px;"></textarea> 
+                </label>
+                <hr>
+                <h3>Aprendizagem:</h3>
+                <label >
+                    Defina no texto abaixo como é a aprendizagem da criança (Ex:A criança tem dificuldade de aprendizagem?*Se sim pode informar quais são* A criança apresenta sinais TDH?)
+                    <br><br>
+                    <textarea name="aprendizagem" style="width:400px; height:100px;"></textarea>
+                </label>
+                <hr>
+                <h3>Gestação:</h3>
+                <label >
+                    Vamos para uma pergunta mais pessoal<br>
+                    Defina no campo de texto abaixo como foi o periodo da gestação maternal (EX:Fez pré-natal?*Quantas semanas começou a sentir as dores de parto?*Teve alguma doença na gestação?*Foi uma gestação de risco?*Fez uso de medicamentos?*Nasceu com quantas semanas?)
+                    <br><br>
+                    <textarea name="gestacao" style="width:400px; height:100px;"></textarea>
+                </label>
+                <hr>
+                <h3>Desenvolvimento motor</h3>
+                <label>
+                    Defina mais sobre o desenvolvimento motor da criança (Ex:Firmou a cabeça com quanto tempo?*Sentou com apoio e sem apoio com quanto tempo?*Andou com quantos anos?)
+                    <br><br>
+                    <textarea name="desenvolvimento_motor" style="width:400px; height:100px;"></textarea>
+                </label>
+                <hr>
+                <h3>Perguntas direcionadas à área da psicologia</h3>
+                <label >
+                    Defina no campo de texto abaixo algumas questões psicologicas (Ex:A criança busca e demonstra carinho? Se sim, com qualquer pessoa ou mais *Quais os maiores interesses da criança?* A criança identifica sentimentos?* Demonstra empatia?* Quais os comportamentos que a criança apresenta diante de frustrações?)
+                    <br><br>
+                    <textarea name="psicologia" style="width:400px; height:100px;"></textarea>
+                </label>
+                <hr>
+                <h3>Fonoaudiologia:</h3>
+                <label for="">
+                    Defina no campo de texto abaixo alguns fatore fonodiologos da criança (Ex:A criança tem dificuldade de fala?*A criança tem dificuldade de mastigar?*A criança apresenta sialorreia? (salivação em excesso)* A criança apresenta tosse ou engasgo quando se alimenta? * A criança se alimenta de todas as consistência ( líquido, pastoso e sólido)?*  A criança apresenta ecolalias tardias ou imediatas (repetir falas das pessoas ou de desenhos)?)
+                    <br><br>
+                    <textarea name="fonoaudiologia" style="width:400px; height:100px;"></textarea>
+                </label>
+                <hr>
+                <h3>Medicamentos</h3>
+                <div class="tamanhotexto">
+                    <label >
+                        Informar se a criança ingere algum medicamento
+                        <br><br>
+                        <textarea name="medicamento" style="width:400px; height:100px;"></textarea>
+                    </label>
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary btn-lg">Cadastrar</button>
             </fieldset>
         </form>
+        <div class="col-6">
+            <img src="./assets/img/imgcadastro.png" class="rounded float-end" alt="...">
+        </div>
+        <?php
+        $dados = $p->buscarDados();
+        if(count($dados) > 0)
+        {
+            for ($i=0; $i < count($dados); $i++)
+            {
+                foreach ($dados[$i] as $k => $v)
+                {
+                    if($k != "id_crianca")
+                    {
+
+                    }
+                }
+            }
+        }
+        else{
+
+        }
+        ?>
     </div>
+    <script> 
+        (function(){
+        var min = 100, max = 300, pad_right = 5, input = document.getElementById('adjinput');
+
+        input.style.width = min+'px';
+        input.onkeypress = input.onkeydown = input.onkeyup = function(){
+            var input = this;
+            setTimeout(function(){
+                var tmp = document.createElement('div');
+                tmp.style.padding = '0';
+                if(getComputedStyle)
+                    tmp.style.cssText = getComputedStyle(input, null).cssText;
+                if(input.currentStyle)
+                    tmp.style.cssText = input.currentStyle.cssText;
+                tmp.style.width = '';
+                tmp.style.position = 'absolute';
+                tmp.innerHTML = input.value.replace(/&/g, "&amp;")
+                                       .replace(/</g, "&lt;")
+                                       .replace(/>/g, "&gt;")
+                                       .replace(/"/g, "&quot;")
+                                       .replace(/'/g, "&#039;")
+                                       .replace(/ /g, '&nbsp;');
+                input.parentNode.appendChild(tmp);
+                var width = tmp.clientWidth+pad_right+1;
+                tmp.parentNode.removeChild(tmp);
+                if(min <= width && width <= max)
+                    input.style.width = width+'px';
+            }, 1);
+            }
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
 </body>
 </html>

@@ -1,4 +1,3 @@
 # atypical
-atypical 5.0
-29/04/22 dois cadastros funcionandos
-fazer telas de resultados
+atypical 5.1
+03/05/22 falta mostrar os resultados
